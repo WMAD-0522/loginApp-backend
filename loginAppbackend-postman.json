@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "88fdf233-419e-4121-a35d-530659375bf1",
+		"_postman_id": "adf9f877-2287-4cbb-a3f4-8947aad74421",
 		"name": "User",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4765475"
 	},
 	"item": [
 		{
@@ -20,11 +21,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:5001/api/user/login",
+					"raw": "{{local}}/api/user/login",
 					"host": [
-						"localhost"
+						"{{local}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"user",
@@ -40,11 +40,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:5001/api/user/testuser",
+					"raw": "{{local}}/api/user/testuser",
 					"host": [
-						"localhost"
+						"{{local}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"user",
@@ -61,7 +60,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"fullName\":\"Test User\",\n    \"username\":\"testuser\",\n    \"email\":\"asd@test.com\",\n    \"password\":\"123456\"\n}",
+					"raw": "{\n    \"fullName\":\"Test User\",\n    \"username\":\"testuser\",\n    \"email\":\"test@test.com\",\n    \"password\":\"123456\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -69,11 +68,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:5001/api/user/signup",
+					"raw": "{{local}}/api/user/signup",
 					"host": [
-						"localhost"
+						"{{local}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"user",
@@ -89,11 +87,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:5001/api/user/testuser",
+					"raw": "{{local}}/api/user/testuser",
 					"host": [
-						"localhost"
+						"{{local}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"user",
@@ -102,6 +99,33 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "localhost:3001",
+			"type": "string"
 		}
 	]
 }
