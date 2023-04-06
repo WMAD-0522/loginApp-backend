@@ -14,7 +14,8 @@ let createUser = (body, hash) => new User({
   password: hash,
 });
 
-let createToken = (payload) => jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "2h" });
+let createToken = (payload) => jwt.sign(payload, process.env.JWT_SECRET || "thejwtsecret", { expiresIn: "2h" });
+console.log(process.env.JWT_SECRET || "thejwtsecret", "JWT_SECRET");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -50,7 +51,7 @@ router.post("/login", async (req, res) => {
     }
 
     const token = createToken({ email: user.email, userId: user._id });
-    res.status(200).json({ token, expiresIn: 7200, userId: user._id });
+    res.status(200).json({ token, expiresIn: 7200, user: user });
   } catch (e) {
     console.log(e);
   }
