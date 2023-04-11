@@ -5,6 +5,10 @@ import cors from 'cors';
 import header_middleware from './middleware/header.js';
 import userRoutes from './routes/user.js';
 import db from './db/db.js'
+import favoriteRoutes from './routes/favorite.js';
+import episodeRoutes from './routes/episode.js';
+import characterRoutes from './routes/character.js';
+import locationRoutes from './routes/location.js';
 
 const app = express();
 dotenv.config();
@@ -23,6 +27,10 @@ app.get("/health", (req, res) => {
 })
 
 app.use("/api/user", userRoutes);
+app.use('/api/favorites', favoriteRoutes);
+app.use('/api/episode', episodeRoutes);
+app.use('/api/character', characterRoutes);
+app.use('/api/location', locationRoutes);
 
 app.listen(process.env.PORT, (req, res) => {
     console.log(`app is listening to PORT ${process.env.PORT}`)
