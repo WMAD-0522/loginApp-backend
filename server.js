@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import header_middleware from './middleware/header.js';
 import userRoutes from './routes/user.js';
+import characterRoutes from './routes/character.js';
+import episodeRoutes from './routes/episode.js';
+import locationRoutes from './routes/location.js';
 import db from './db/db.js'
 
 const app = express();
@@ -23,6 +26,9 @@ app.get("/health", (req, res) => {
 })
 
 app.use("/api/user", userRoutes);
+app.use("/api/character", characterRoutes);
+app.use("/api/episode", episodeRoutes);
+app.use("/api/location", locationRoutes);
 
 app.listen(process.env.PORT, (req, res) => {
     console.log(`app is listening to PORT ${process.env.PORT}`)
